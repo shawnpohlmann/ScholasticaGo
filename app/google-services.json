@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "526532765811",
+    "firebase_url": "https://scholasticago.firebaseio.com",
+    "project_id": "scholasticago",
+    "storage_bucket": "scholasticago.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:526532765811:android:abe6e7c0ed0a571a",
+        "android_client_info": {
+          "package_name": "spohlmann.mobiledevices.scholasticago"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "526532765811-anfar3msbib0q83or7khd7kgceqfr5u1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "spohlmann.mobiledevices.scholasticago",
+            "certificate_hash": "6282d8b766e5cc490f960b96c4deef4aecdcd9c5"
+          }
+        },
+        {
+          "client_id": "526532765811-5ma0nfo9k5jlu1dv875i6ffe6kh7b9h9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRy8H3zRpkTnNloeyKaDS4Z8xx1y7QFSM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "526532765811-5ma0nfo9k5jlu1dv875i6ffe6kh7b9h9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
