@@ -2,4 +2,5 @@
     <string name="app_name">ScholasticaGo</string>
     <string name="scholasticago">ScholasticaGo!</string>
     <string name="please_login_or_create_an_account">Please Login or Create an Account:</string>
+    <string name="create_an_account">Create An Account</string>
 </resources>
