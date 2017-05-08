@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <TextView
+        android:text="Select A Place To Visit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView9"
+        android:textAppearance="@style/Material.Medium" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="416dp"
+        android:layout_weight="0.83"
+        android:id="@+id/listViewPlaces"
+        android:layout_below="@+id/textView9"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="Log Out"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonLogOut"
+        android:layout_below="@+id/listViewPlaces"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_width="wrap_content" />
+
+    <Button
+        android:text="Details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonDetails"
+        android:layout_alignBaseline="@+id/buttonLogOut"
+        android:layout_alignBottom="@+id/buttonLogOut"
+        android:layout_toRightOf="@+id/buttonLogOut" />
+</RelativeLayout>
