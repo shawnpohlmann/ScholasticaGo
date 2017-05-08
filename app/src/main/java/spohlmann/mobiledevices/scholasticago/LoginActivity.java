@@ -45,12 +45,14 @@ public class LoginActivity extends AppCompatActivity {
                 // Log.d("CIS3334", "normal login ");
                 signIn(editTextUsername.getText().toString(), editTextPassword.getText().toString());
 
+
             }
         });
         buttonCreateAccount.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Log.d("CIS3334", "Creating Account. ");
                 Intent intent = new Intent(LoginActivity.this, CreateAccount.class);
+                finish();
                 startActivity(intent);
             }
         });
@@ -73,7 +75,10 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.makeText(LoginActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                         } else {
+
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             finish();
+                            startActivity(intent);
                         }
 
 
