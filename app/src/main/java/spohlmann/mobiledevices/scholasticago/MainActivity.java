@@ -29,23 +29,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.main_activity);
 
         mAuth = FirebaseAuth.getInstance();
+        checkUserAuthentication();
 
         buttonLogOut = (Button) findViewById(R.id.buttonLogOut);
 
-        mAuthListener = new FirebaseAuth.AuthStateListener() { //initialized mAuthListener
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                //track the user when they sign in or out using the firebaseAuth
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user == null) {
-                    // User is signed in
-                    Log.d("CSS3334","onAuthStateChanged - User NOT is signed in");
-                    Intent signInIntent = new Intent(getBaseContext(), LoginActivity.class);
-                    startActivity(signInIntent);
-                }
 
-            }
-        };
 
 
 
@@ -73,7 +61,22 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void checkUserAuthentication() {
+        mAuthListener = new FirebaseAuth.AuthStateListener() { //initialized mAuthListener
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                //track the user when they sign in or out using the firebaseAuth
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user == null) {
+                    // User is signed out
+                    Log.d("CSS3334","onAuthStateChanged - User NOT is signed in");
+                    Intent signInIntent = new Intent(getBaseContext(), LoginActivity.class);
+                    startActivity(signInIntent);
+                }
 
+            }
+        };
+    }
 
 
 
