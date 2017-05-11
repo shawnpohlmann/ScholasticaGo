@@ -37,6 +37,11 @@ public class PlacesFirebaseData {
 
     }
 
+    public Places updatePlace(Places newPlace) {
+        myPlacesDbRef.child("users").child(userId).child(newPlace.getKey()).setValue(newPlace);
+        return newPlace;
+    }
+
     public Places createPlace(String locationName, String completed,
                               Double locationLatitude, Double locationLongitude, Integer code) {
         String key = myPlacesDbRef.child(PlacesDataTag).push().getKey();

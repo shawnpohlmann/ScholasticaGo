@@ -29,22 +29,22 @@ public class Places implements Serializable{
     }
 
     public String getKey() {return key;}
-    public void setKey() {this.key = key;}
+    public void setKey(String key) {this.key = key;}
 
     public String getLocationName() {return locationName;}
-    public void setLocationName() {this.locationName = locationName;}
+    public void setLocationName(String locationName) {this.locationName = locationName;}
 
     public String getComplete() {return complete;}
     public void setComplete(String complete) {this.complete = complete;}
 
     public Double getLocationLatitude() {return locationLatitude;}
-    public void setLocationLatitude() { this.locationLatitude = locationLatitude;}
+    public void setLocationLatitude(Double locationLatitude) { this.locationLatitude = locationLatitude;}
 
     public Double getLocationLongitude() {return locationLongitude;}
-    public void setLocationLongitude() {this.locationLongitude = locationLongitude;}
+    public void setLocationLongitude(Double locationLongitude) {this.locationLongitude = locationLongitude;}
 
     public int getCode() {return code;}
-    public void setCode() {this.code = code;}
+    public void setCode(int code) {this.code = code;}
 
     public String toString() {
         return "Place{" +

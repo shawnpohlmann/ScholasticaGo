@@ -8,6 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 /**
  * Created by spohlmann on 5/8/2017.
  */
@@ -20,16 +23,20 @@ public class PlaceDetail extends AppCompatActivity {
     EditText editTextCode;
     Button buttonEnterCode;
     Button buttonBack;
-    boolean result = false;
 
-    Bundle bundle = getIntent().getExtras();
-    Places places = (Places) bundle.getSerializable("Places");
+    Bundle bundle;
+    Places places;
+    PlacesFirebaseData placesDataSource;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detail);
 
+        bundle = getIntent().getExtras();
+        places = (Places) bundle.getSerializable("Places");
 
+        placesDataSource = new PlacesFirebaseData();
+        DatabaseReference myPlacesDbRef = placesDataSource.open();
 
         textViewName = (TextView) findViewById(R.id.textViewName);
         textViewLatitude = (TextView) findViewById(R.id.textViewLatitude);
@@ -63,6 +70,8 @@ public class PlaceDetail extends AppCompatActivity {
         int checkCode = Integer.parseInt(editTextCode.getText().toString());
         if (checkCode == placeCode){
             places.setComplete("Completed");
+            placesDataSource.updatePlace(places);
+            textViewCompleted.setText(places.getComplete());
         }
     }
 }
