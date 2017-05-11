@@ -56,9 +56,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Log.d("MAIN", "onClick for Details");
                 Intent detailActIntent = new Intent(MainActivity.this, PlaceDetail.class);
-                detailActIntent.putExtra("Places","hi"); // placesList.get(positionSelected)
-                //finish();
-                startActivity(detailActIntent);
+                detailActIntent.putExtra("Places",placesList.get(positionSelected));
+                finish();
+                startActivity(detailActIntent); //App Crashes here
+
             }
         });
         buttonLogOut = (Button) findViewById(R.id.buttonLogOut);
@@ -122,11 +123,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void setupDetailButton() {
-        // Set up the button to display details on one Place using a seperate activity
-
-
-    }
 
 
 

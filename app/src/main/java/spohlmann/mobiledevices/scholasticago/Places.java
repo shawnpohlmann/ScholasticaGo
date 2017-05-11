@@ -35,7 +35,7 @@ public class Places implements Serializable{
     public void setLocationName() {this.locationName = locationName;}
 
     public String getComplete() {return complete;}
-    public void setComplete() {this.complete = complete;}
+    public void setComplete(String complete) {this.complete = complete;}
 
     public Double getLocationLatitude() {return locationLatitude;}
     public void setLocationLatitude() { this.locationLatitude = locationLatitude;}
