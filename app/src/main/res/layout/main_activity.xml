@@ -36,5 +36,6 @@
         android:id="@+id/buttonDetails"
         android:layout_alignBaseline="@+id/buttonLogOut"
         android:layout_alignBottom="@+id/buttonLogOut"
-        android:layout_toRightOf="@+id/buttonLogOut" />
+        android:layout_toRightOf="@+id/buttonLogOut"
+        android:layout_toEndOf="@+id/buttonLogOut" />
 </RelativeLayout>

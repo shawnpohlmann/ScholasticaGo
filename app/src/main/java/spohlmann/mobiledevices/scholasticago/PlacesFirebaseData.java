@@ -26,7 +26,10 @@ public class PlacesFirebaseData {
         myPlacesDbRef = database.getReference(PlacesDataTag);
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseUser user = firebaseAuth.getCurrentUser();
-        userId = user.getUid();
+        if(user!=null) {
+            userId = user.getUid();
+        }
+
         return myPlacesDbRef;
     }
 
@@ -35,19 +38,22 @@ public class PlacesFirebaseData {
     }
 
     public Places createPlace(String locationName, String completed,
-                              Double locationLatitude, Double locationLongitude) {
+                              Double locationLatitude, Double locationLongitude, Integer code) {
         String key = myPlacesDbRef.child(PlacesDataTag).push().getKey();
         Places newPlace = new Places(key, locationName, completed,
-                locationLatitude, locationLongitude);
+                locationLatitude, locationLongitude, code);
         myPlacesDbRef.child("users").child(userId).child(key).setValue(newPlace);
         return newPlace;
     }
     public List<Places> getAllPlaces(DataSnapshot dataSnapshot) {
         List<Places> placesList = new ArrayList<Places>();
-        for (DataSnapshot data : dataSnapshot.child("users").child(userId).getChildren()) {
-            Places places = data.getValue(Places.class);
-            placesList.add(places);
-        }
+        firebaseAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+        if (user != null)
+            for (DataSnapshot data : dataSnapshot.child("users").child(userId).getChildren()) {
+                Places places = data.getValue(Places.class);
+                placesList.add(places);
+            }
         return placesList;
     }
 }

@@ -12,18 +12,20 @@ public class Places implements Serializable{
     private String complete;
     private Double locationLatitude;
     private Double locationLongitude;
+    private Integer code;
 
     public Places() {
 
     }
 
     public Places(String key, String locationName, String complete, Double locationLatitude,
-                  Double locationLongitude) {
+                  Double locationLongitude, Integer code) {
         this.key = key;
         this.locationName = locationName;
         this.complete = complete;
         this.locationLatitude = locationLatitude;
         this.locationLongitude = locationLongitude;
+        this.code = code;
     }
 
     public String getKey() {return key;}
@@ -40,6 +42,9 @@ public class Places implements Serializable{
 
     public Double getLocationLongitude() {return locationLongitude;}
     public void setLocationLongitude() {this.locationLongitude = locationLongitude;}
+
+    public int getCode() {return code;}
+    public void setCode() {this.code = code;}
 
     public String toString() {
         return "Place{" +

@@ -88,5 +88,10 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 });
     }
+    public void finish(){
+        Intent intent = new Intent();
+        setResult(RESULT_OK, intent);
+        super.finish();
+    }
 
 }

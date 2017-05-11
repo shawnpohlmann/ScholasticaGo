@@ -39,7 +39,7 @@
         android:id="@+id/editTextPassword1" />
 
     <Button
-        android:text="Button"
+        android:text="Create Account"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/buttonCreateAccount1" />

@@ -49,8 +49,7 @@ public class CreateAccount extends AppCompatActivity {
 
             }
         });
-        placesDataSource = new PlacesFirebaseData();
-        DatabaseReference myPlacesDbRef = placesDataSource.open();
+
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -83,12 +82,14 @@ public class CreateAccount extends AppCompatActivity {
                                     Toast.LENGTH_SHORT).show();
                         } else {
                             Log.d(TAG, "createAccount succeeded");
+                            placesDataSource = new PlacesFirebaseData();
+                            DatabaseReference myPlacesDbRef = placesDataSource.open();
 
-                            placesDataSource.createPlace("Scary Mary", "Not Complete", 46.813871, -92.108404);
-                            placesDataSource.createPlace("Tower Hall", "Not Complete", 46.816121, -92.106042);
-                            placesDataSource.createPlace("Welcome Sign", "Not Complete", 46.816681, -92.100650);
-                            placesDataSource.createPlace("BWC", "Not Complete", 46.817553, -92.106601);
-                            placesDataSource.createPlace("Garden", "Not Complete", 46.815606, -92.107103);
+                            placesDataSource.createPlace("Scary Mary", "Not Complete", 46.813871, -92.108404, 0);
+                            placesDataSource.createPlace("Tower Hall", "Not Complete", 46.816121, -92.106042, 0);
+                            placesDataSource.createPlace("Welcome Sign", "Not Complete", 46.816681, -92.100650, 0);
+                            placesDataSource.createPlace("BWC", "Not Complete", 46.817553, -92.106601, 0);
+                            placesDataSource.createPlace("Garden", "Not Complete", 46.815606, -92.107103, 0);
 
                             Intent intent = new Intent(CreateAccount.this, MainActivity.class);
                             finish();
