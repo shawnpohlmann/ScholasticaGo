@@ -19,6 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 
 /**
  * Created by spohlmann on 5/7/2017.
+ * This class creates the user accounts and creates the places for them to visit
  */
 
 public class CreateAccount extends AppCompatActivity {
@@ -30,6 +31,10 @@ public class CreateAccount extends AppCompatActivity {
     private String TAG = "CIS3334";
     PlacesFirebaseData placesDataSource;
 
+    /*
+     * When the class is run it sets the view assigns the fields to the right id's sets up the button
+     * for Create Account
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_account);
@@ -66,6 +71,13 @@ public class CreateAccount extends AppCompatActivity {
         };
     }
 
+    /*
+     * This method is what creates the account. It takes the email and password filled into the EditText fields on the layout
+     * and if the account creation is successfull it opens a database connection and creates the places that will be assigned to
+     * that user specifically. If it fails a toast message appears saying that there was a failure
+     * @param String email
+     * @param String password
+     */
     private void createAccount(String email, String password) {
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {

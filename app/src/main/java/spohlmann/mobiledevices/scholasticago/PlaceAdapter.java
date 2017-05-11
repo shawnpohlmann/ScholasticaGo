@@ -14,6 +14,7 @@ import java.util.List;
 
 /**
  * Created by spohlmann on 5/7/2017.
+ * This is the adapter that sets up the list of places to be properly displayed
  */
 
 public class PlaceAdapter extends ArrayAdapter<Places> {
@@ -27,6 +28,9 @@ public class PlaceAdapter extends ArrayAdapter<Places> {
         this.placesList = placesList;
     }
 
+    /*
+     * This sets up the View assigns the column in the list so it is viewed properly
+     */
     public View getView(int position, View convertView, ViewGroup parent) {
         Places places = placesList.get(position);
         View view;

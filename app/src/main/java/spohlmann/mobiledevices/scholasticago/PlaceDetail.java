@@ -13,6 +13,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 /**
  * Created by spohlmann on 5/8/2017.
+ * This is the activity that lists the details of the selected place allows the user to enter the code so they could show if they visited the
+ * places on the list or not.
  */
 
 public class PlaceDetail extends AppCompatActivity {
@@ -28,6 +30,11 @@ public class PlaceDetail extends AppCompatActivity {
     Places places;
     PlacesFirebaseData placesDataSource;
 
+    /*
+     * Gets the intent sent from MainActivity
+     * displays the information from the object that was sent over in the intent.
+     * sets the onclick listener for the buttons and includes and intent to send it back to the Main activity
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detail);
@@ -65,6 +72,10 @@ public class PlaceDetail extends AppCompatActivity {
             }
         });
     }
+    /*
+     * Checks to see if the code entered by the user matches the code for the object. If it does it updates
+     * the Complete value of the object to Completed and updates the textView on the page.
+     */
     public void checkComplete(){
         int placeCode = places.getCode();
         int checkCode = Integer.parseInt(editTextCode.getText().toString());

@@ -41,6 +41,11 @@ public class MainActivity extends AppCompatActivity {
     int positionSelected;
     Places placeSelected;
 
+    /*
+     * This is the onCreate for the when the app starts.
+     * Checks if user is logged in sets up a database connection sets the list view along with the
+     * fields and the onClickListeners for the buttons.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,6 +80,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /*
+     * Checks to see if a user is signed in. If no one is signed in it uses an intent to send the user to the sign in activity
+     */
     private void checkUserAuthentication() {
         mAuthListener = new FirebaseAuth.AuthStateListener() { //initialized mAuthListener
             @Override
@@ -92,6 +100,9 @@ public class MainActivity extends AppCompatActivity {
             }
         };
     }
+    /*
+     * Opens the Firebase connection gets the data and displays in it in the ListView using the adapter
+     */
     private void setupFirebaseDataChange() {
         placeDataSource = new PlacesFirebaseData();
         myPlacesDbRef = placeDataSource.open();
@@ -112,6 +123,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    /*
+     * sets up the ListView and assigns the onItemClickListener
+     */
     private void setupListView() {
         placesListView = (ListView) findViewById(R.id.listViewPlaces);
         placesListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){

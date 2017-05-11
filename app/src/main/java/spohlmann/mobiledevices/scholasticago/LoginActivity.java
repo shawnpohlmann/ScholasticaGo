@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 /**
  * Created by spohlmann on 5/7/2017.
+ * This class signs the users in.
  */
 
 public class LoginActivity extends AppCompatActivity {
@@ -28,6 +29,10 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private String TAG = "CIS3334";
 
+    /*
+     * Run right when the class is initiated and sets the layout to the sign in activity (activity_main.xml)
+     * assigns the field to the right variables and sets the listeners for the buttons
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,8 +63,11 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-
-
+    /*
+     * method that signs the users in. Passes in the username and password obtained from the fields on the layout.
+     * Then runs the mauth.signInWithEmailAndPassword method to sign them in.
+     * If successful it uses an intent to send it back to the Main activity and closes that activity.
+     */
     public void signIn(String userName, String password){
         mAuth.signInWithEmailAndPassword(userName, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -88,6 +96,9 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 });
     }
+    /*
+     * method to close the activity.
+     */
     public void finish(){
         Intent intent = new Intent();
         setResult(RESULT_OK, intent);
